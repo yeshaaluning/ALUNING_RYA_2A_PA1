@@ -51,4 +51,4 @@ output: i :) bcz of cali
 **Example:** <br>
 input: 3 6 9 12 15  <br>
 output: <br>
-First Digit: 3 <br> Middle Digits: 6, 9, 23 <br> Last Digit: 3
+First Digit: 3 <br> Middle Digits: 6, 9, 12 <br> Last Digit: 15
