@@ -11,6 +11,31 @@ This repository includes Python programs that provide solutions to three (3) pro
 4. The sorted list is then combined back into a string.
 5. Finally, the program prints the result — the word’s letters arranged alphabetically.
 
+```Python
+#Defining alphabet soup 
+def alphabet_soup(text):
+    char_list = []
+    for letter in text:
+        char_list.append(letter)
+
+    #Sorting the list alphabetically
+    char_list.sort()
+
+    #Converting list to string
+    result = ""
+    for letter in char_list:
+        result += letter
+
+    return result
+
+#User inputs the word
+w = input("Enter a word: ")
+
+#Call the function and print result
+sorted_word = alphabet_soup(w)
+print(sorted_word)
+```
+
 **Example:** <br>
 input: yesha <br>
 output: aehsy
@@ -31,6 +56,23 @@ output: aehsy
 5. The function emotify(user_input) is called, and its result is stored in result.
 6. Finally, the program prints the sentence with words replaced by emoticons.
 
+```Python
+#Defining emotify & replacing words with emoticons
+def emotify(sentence):
+    sentence = sentence.replace("smile", ":)")
+    sentence = sentence.replace("grin", ":D")
+    sentence = sentence.replace("sad", ":(")
+    sentence = sentence.replace("mad", ">:(")
+    
+    return sentence
+
+#User gives the sentence
+user_input = input("Enter a sentence: ")
+
+#Call the function and print result
+result = emotify(user_input)
+print(result)
+```
 **Example:** <br>
 input: i smile bcz of cali <br>
 output: i :) bcz of cali
@@ -48,6 +90,28 @@ output: i :) bcz of cali
    * last → the last element (X[-1])
 4. The program prints each part separately to show the unpacking result.
 
+```Python
+# User inputs the list of numbers
+user_input = input("Enter numbers separated by spaces: ")
+
+#Converts to list of integers
+X = []
+for num in user_input.split():
+    X.append(int(num))
+
+#Unpack the list
+first = X[0]
+middle = X[1:-1]
+last = X[-1]
+
+#Print the results
+print("First Digit:", first)
+print("Middle Digits:", middle)
+print("Last Digit:", last)
+First Digit: 6
+Middle Digits: [3, 6, 8, 3, 21, 2]
+Last Digit: 3
+```
 **Example:** <br>
 input: 3 6 9 12 15  <br>
 output: <br>
