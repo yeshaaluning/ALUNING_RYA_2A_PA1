@@ -2,117 +2,161 @@
 This repository includes Python programs that provide solutions to three (3) problems from Program Assignment 1: Introduction to Python Programming.
 
 ---
-## 1. ALPHABET SOUP PROBLEM
-**Problem:** Create a function that takes a string and returns a string with its letters in alphabetical order <br>
-**Code Process:**
-1. The program prompts the user to type in a word, which will be stored as a string (w).
-2. The string (w) is then converted into a list of characters.
-3. The list of characters is sorted alphabetically using the .sort() function.
-4. The sorted list is then combined back into a string.
-5. Finally, the program prints the result — the word’s letters arranged alphabetically.
 
-```Python
-#Defining alphabet soup 
+## 1. ALPHABET SOUP PROBLEM
+
+**Problem:** Create a function that takes a string and returns a string with its letters in alphabetical order.
+### Explanation
+The task requires rearranging letters of a word in alphabetical order. To do this, the program:
+1. Takes user input.
+2. Breaks the input word into a list of characters.
+3. Uses `.sort()` to arrange characters alphabetically.
+4. Joins the characters back into a single string.
+5. Prints the new alphabetically ordered word.
+
+```python
+#Define a function to arrange letters alphabetically
 def alphabet_soup(text):
-    char_list = []
+    char_list = []  # Create an empty list to hold characters
+    
+    #Step 1: Loop through each letter and add to list
     for letter in text:
         char_list.append(letter)
 
-    #Sorting the list alphabetically
+    #Step 2: Sort the list alphabetically
     char_list.sort()
 
-    #Converting list to string
+    #Step 3: Rebuild the sorted list into a string
     result = ""
     for letter in char_list:
         result += letter
 
-    return result
+    return result  #Return the final alphabetically arranged word
 
-#User inputs the word
+#Step 4: Ask the user to input a word
 w = input("Enter a word: ")
 
-#Call the function and print result
+#Step 5: Call the function and display the result
 sorted_word = alphabet_soup(w)
 print(sorted_word)
 ```
 
-**Example:** <br>
-input: yesha <br>
-output: aehsy
+### Explanation
+* `char_list.append(letter)` stores each character in a list.
+* `.sort()` rearranges the list in ascending (alphabetical) order.
+* A new string is built by concatenating the sorted characters.
+* The function returns and prints the alphabetically arranged word.
+
+**Example Run:**
+```
+Input:  yesha  
+Output:  aehsy
+```
 
 ---
 
 ## 2. EMOTICON PROBLEM
-**Problem:** Create a function that changes specific words into emoticons. Given a sentence as a string, replace the words smile, grin, sad and mad with their corresponding emoticon: <br> 
-**Code Process:**
-1. The program defines a function emotify(sentence) that takes a string as input.
-2. Inside the function, the sentence is checked for specific words:
-   * smile → replaced with :)
-   * grin → replaced with :D
-   * sad → replaced with :(
-   * mad → replaced with >:( <br>(This is done using the .replace() function.)
-3. The updated sentence with emoticons is returned by the function.
-4. The user is prompted to type in a sentence, which is stored in user_input.
-5. The function emotify(user_input) is called, and its result is stored in result.
-6. Finally, the program prints the sentence with words replaced by emoticons.
 
-```Python
-#Defining emotify & replacing words with emoticons
+**Problem:** Create a function that changes specific words into emoticons. Replace the words *smile, grin, sad,* and *mad* with their corresponding emoticons.
+
+### Explanation
+This problem demonstrates text substitution using the `.replace()` method. The program:
+1. Defines a function `emotify(sentence)`.
+2. Uses `.replace()` repeatedly to replace words with their emoticons.
+3. Returns the updated sentence.
+4. Prints the modified sentence after user input.
+
+```python
+#Define a function to replace specific words with emoticons
 def emotify(sentence):
-    sentence = sentence.replace("smile", ":)")
-    sentence = sentence.replace("grin", ":D")
-    sentence = sentence.replace("sad", ":(")
-    sentence = sentence.replace("mad", ">:(")
+    sentence = sentence.replace("smile", ":)")   # Replace "smile" with :)
+    sentence = sentence.replace("grin", ":D")    # Replace "grin" with :D
+    sentence = sentence.replace("sad", ":(")     # Replace "sad" with :(
+    sentence = sentence.replace("mad", ">:(")    # Replace "mad" with >:(
     
-    return sentence
+    return sentence  # Return the sentence with emoticons
 
-#User gives the sentence
+#Ask the user to input a sentence
 user_input = input("Enter a sentence: ")
 
-#Call the function and print result
+#Call the function and print the result
 result = emotify(user_input)
 print(result)
 ```
-**Example:** <br>
-input: i smile bcz of cali <br>
-output: i :) bcz of cali
+
+### Explanation
+* `.replace("smile", ":)")` searches for the word "smile" and substitutes it with `:)`.
+* Each call updates the string further, replacing other words.
+* The final sentence is returned with all substitutions applied.
+
+**Example Run:**
+```
+Input:  I smile when I grin but feel sad when mad  
+Output: I :) when I :D but feel :( when >:(
+```
 
 ---
 
-## 2. UNPACKING LIST PROBLEM
-**Problem:** Unpack the list writeyourcodehere into three variables, being first, middle, and last, with middle being everything in between the first and last element. Then print all three variables <br> 
-**Code Process:**
-1. The program prompts the user to enter numbers separated by spaces, which are stored as a string (user_input).
-2. The string is split into individual pieces using .split(), and each piece is converted into an integer. These numbers are stored in a list (X).
-3. The list is then unpacked into three parts:
-   * first → the first element (X[0])
-   * middle → all the elements between the first and last (X[1:-1])
-   * last → the last element (X[-1])
-4. The program prints each part separately to show the unpacking result.
+## 3. UNPACKING LIST PROBLEM
 
-```Python
-# User inputs the list of numbers
+**Problem:** Unpack the list into three variables: `first`, `middle`, and `last`, with `middle` containing all elements between the first and last. Print all three values.
+
+### Explanation
+This problem applies list indexing and slicing. The program:
+1. Prompts the user for numbers separated by spaces.
+2. Splits the input string into pieces and converts them into integers.
+3. Uses indexing and slicing to unpack values:
+   * `X[0]` → first element.
+   * `X[1:-1]` → middle elements.
+   * `X[-1]` → last element.
+4. Prints the unpacked values individually.
+
+```python
+#Step 1: Ask the user to enter numbers
 user_input = input("Enter numbers separated by spaces: ")
 
-#Converts to list of integers
+#Step 2: Convert input into a list of integers
 X = []
 for num in user_input.split():
-    X.append(int(num))
+    X.append(int(num))  # Convert each input into an integer and add to list
 
-#Unpack the list
-first = X[0]
-middle = X[1:-1]
-last = X[-1]
+#Step 3: Unpack the list into first, middle, and last
+first = X[0]        # First element
+middle = X[1:-1]    # All elements between first and last
+last = X[-1]        # Last element
 
-#Print the results
+#Step 4: Print the results
 print("First Digit:", first)
 print("Middle Digits:", middle)
 print("Last Digit:", last)
-First Digit: 6
-Middle Digits: [3, 6, 8, 3, 21, 2]
-Last Digit: 3
 ```
-**Example:** <br>
-input: 3 6 9 12 15  <br>
-output: <br>
-First Digit: 3 <br> Middle Digits: 6, 9, 12 <br> Last Digit: 15
+
+### Explanation
+* `.split()` breaks the input string into separate numbers.
+* `int(num)` ensures that numbers are stored as integers, not strings.
+* Indexing and slicing (`X[0]`, `X[1:-1]`, `X[-1]`) separate the first, middle, and last.
+* The unpacked values are displayed to the user.
+
+**Example Run:**
+```
+Input:  3 6 9 12 15  
+Output:  
+First Digit: 3  
+Middle Digits: [6, 9, 12]  
+Last Digit: 15
+```
+
+---
+
+## Conclusion
+
+Program Assignment 1 provided practice with fundamental Python programming concepts:
+1. The **Alphabet Soup Problem** taught how to manipulate strings, sort lists, and rebuild them into strings.
+2. The **Emoticon Problem** introduced the use of `.replace()` for simple text substitution.
+3. The **Unpacking List Problem** reinforced indexing and slicing of lists.
+
+Overall, this assignment strengthens understanding of **loops, strings, lists, functions, and user input/output**, serving as the foundation for more advanced problem-solving in Python.
+
+---
+
+*Version 3*
